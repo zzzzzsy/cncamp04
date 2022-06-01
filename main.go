@@ -1,10 +1,12 @@
 package main
 
 import (
-	"cncamp04/module02"
+	_ "cncamp04/module02"
+	"cncamp04/module03"
 )
 
 func main() {
-	module02.Exercise1()
-	module02.Exercise2()
+	// module02.Exercise1()
+	// module02.Exercise2()
+	module03.WebServer()
 }
