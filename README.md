@@ -27,5 +27,10 @@ docker build -f Dockerfile . -t zzzzzsy/cncamp04:1.0
 docker login -u zzzzzsy
 docker push zzzzzsy/cncamp04:1.0
 
+docker run -d -p 80:80 --name httpclient zzzzzsy/cncamp04:1.0
+
+# testing
+curl -X GET http://localhost/healthz
+
 # dockerhub image https://hub.docker.com/repository/docker/zzzzzsy/cncamp04
 ```
