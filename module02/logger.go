@@ -1,4 +1,4 @@
-package module03
+package module02
 
 import (
 	"log"
