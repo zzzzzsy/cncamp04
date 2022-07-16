@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	DEFAULT_CONF     = "module08/conf/config.json"
+	DEFAULT_CONF     = "module08/conf/config.json" // run local only. please provide env variable CONFIG_PATH in your dockerfile
 	TIMESTAMP_FORMAT = "2006-01-02 15:04:05"
 )
 
