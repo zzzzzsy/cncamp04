@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: app
-          image: zzzzzsy/cncamp04:latest
+          image: IMG_PLACEHOLDER
           ports:
-            - containerPort: 8080
+            - containerPort: TARGET_PORT_PLACEHOLDER
               name: http-app
           resources:
             limits:
@@ -30,13 +30,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /ip
-              port: 8080
+              port: TARGET_PORT_PLACEHOLDER
             failureThreshold: 3
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /healthz
-              port: 8080
+              port: TARGET_PORT_PLACEHOLDER
             failureThreshold: 3
             periodSeconds: 10
       # imagePullSecrets:

@@ -7,5 +7,5 @@ spec:
     app: httpclient
   ports:
     - name: http-client
-      port: 8080
+      port: 80
       targetPort: http-app
