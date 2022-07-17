@@ -50,4 +50,15 @@ kubectl port-forward svc/httpclient-service 8443:80
 127.0.0.1:55482%
 ❯ curl http://localhost:8443/healthz
 Hello LiveRamp SRE%
+
+#日志分级信息
+time="2022-07-17 10:57:33" level=debug msg="Response header Accept: */*\n"
+time="2022-07-17 10:57:33" level=debug msg="Response header Connection: close\n"
+time="2022-07-17 10:57:33" level=debug msg="Response header User-Agent: kube-probe/1.23\n"
+time="2022-07-17 10:57:33" level=info msg="Request is from 172.17.0.1:57046\n"
+time="2022-07-17 10:57:33" level=info msg="Response code is 200\n"
+time="2022-07-17 10:57:33" level=debug msg="Response header Connection: close\n"
+time="2022-07-17 10:57:33" level=info msg="Request is from 172.17.0.1:57048\n"
+time="2022-07-17 10:57:33" level=info msg="Response code is 200\n"
+^C
 ```
