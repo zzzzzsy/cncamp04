@@ -6,7 +6,7 @@
 - 增加Service，Nginx Ingress
 - 通过letsencrypt签发的证书保证服务的通讯安全
 - 增加configmap使配置与代码分离
-- 更新自动化部署文件Makefile
+- 更新自动化部署文件[Makefile](../Makefile)
 
 ## Pre Request
 ### 设置Dockerhub登录信息(可选)
