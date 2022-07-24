@@ -8,7 +8,6 @@ import (
 )
 
 const (
-	DEFAULT_CONF     = "module08/conf/config.json" // run local only. please provide env variable CONFIG_PATH in your dockerfile
 	TIMESTAMP_FORMAT = "2006-01-02 15:04:05"
 )
 
@@ -24,9 +23,16 @@ type ServerConfig struct {
 }
 
 func (c *Config) initConfig() (*Config, error) {
-	cp := GetenvWithFallback("CONFIG_PATH", DEFAULT_CONF)
+	cp := os.Getenv("CONFIG_PATH")
 	f, err := os.Open(cp)
 	if err != nil {
+		if os.IsNotExist(err) {
+			// if configmap not mounted
+			// init config file with default values for local docker run
+			c = defaultLocalConf()
+			setLogLevel(c.LogLevel)
+			return c, nil
+		}
 		return c, err
 	}
 	defer f.Close()
@@ -74,4 +80,16 @@ func setLogLevel(lvl string) {
 	customFormatter.TimestampFormat = TIMESTAMP_FORMAT
 	customFormatter.FullTimestamp = true
 	log.SetFormatter(customFormatter)
+}
+
+// test local only
+func defaultLocalConf() *Config {
+	return &Config{
+		ServerConfig: ServerConfig{
+			Port:    "8080",
+			Host:    "0.0.0.0",
+			Version: "local",
+		},
+		LogLevel: "debug",
+	}
 }

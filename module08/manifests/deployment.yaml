@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpclient
+  namespace: cncamp
   labels:
     app: httpclient
 spec:
@@ -39,5 +40,14 @@ spec:
               port: 8080
             failureThreshold: 3
             periodSeconds: 10
+          volumeMounts:
+            - name: httpclient-conf
+              mountPath: "/usr/app/conf"
+              readOnly: true
+      volumes:
+        - name: httpclient-conf
+          configMap:
+            defaultMode: 420
+            name: httpclient-conf
       # imagePullSecrets:
       #   - name: dockerhub

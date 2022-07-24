@@ -10,9 +10,8 @@ FROM alpine:3.16
 
 WORKDIR /usr/app
 
-ENV CONFIG_PATH=/usr/app/config.json
+ENV CONFIG_PATH=/usr/app/conf/config.json
 
 COPY --from=builder /workspace/httpclient ./
-COPY module08/conf/config.json ./
 
 ENTRYPOINT ["/usr/app/httpclient"]

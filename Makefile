@@ -1,7 +1,7 @@
 # include .env
 # Image URL to use all building/pushing image targets
 IMG ?= zzzzzsy/cncamp04:latest
-TARGET_PORT=$(shell jq .server.port module08/conf/config.json)
+TARGET_PORT ?= 8080
 LOCAL_PORT ?= 8443
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
@@ -23,7 +23,7 @@ test: fmt vet ## Run tests.
 docker-build: test ## Build docker image
 	docker build -t ${IMG} .
 
-docker-run: ## Run service on local port 8888
+docker-run: docker-build ## Run service on local port 8443
 	docker run --name httpclient -d -p ${LOCAL_PORT}:${TARGET_PORT} ${IMG}
 
 docker-login: ## Run docker login before push the image to the dockerhub
@@ -32,11 +32,14 @@ docker-login: ## Run docker login before push the image to the dockerhub
 docker-push: docker-login ## Push docker image
 	docker push ${IMG}
 
-manifests: ## init manifests
-	sed "s#TARGET_PORT_PLACEHOLDER#${TARGET_PORT}#g" module08/template/deployment.yaml.tpl | sed "s#IMG_PLACEHOLDER#${IMG}#g" > module08/manifests/deployment.yaml
+pre-apply: ## create namespace first
+    kubectl apply -f module08/manifests/namespace.yaml
 
-apply: ## apply to target k8s cluster
+apply: pre-apply ## apply to target k8s cluster
 	kubectl apply -f module08/manifests
+
+cleanup:
+    kubectl delete ns cncamp
 
 debug:
 	echo ${TARGET_PORT}

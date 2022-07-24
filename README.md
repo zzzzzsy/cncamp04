@@ -1,5 +1,24 @@
 # cncamp04
 
+## Module09
+作业要求：编写 Kubernetes 部署脚本将 httpserver 部署到 Kubernetes 集群，以下是你可以思考的维度。
+
+---
+第二部分
+- Service
+- Ingress
+- 如何确保整个应用的高可用
+- 如何通过证书保证 httpServer 的通讯安全
+
+---
+作业提交
+- [测试结果展示](module08/README.md#第二部分)
+- 本次作业基于Module08进行了改进
+- [代码执行说明](./module08/README.md)
+- [本次作业代码地址](https://github.com/zzzzzsy/cncamp04/tree/main/module08)
+
+
+
 ## Module08
 作业要求：编写 Kubernetes 部署脚本将 httpserver 部署到 Kubernetes 集群，以下是你可以思考的维度。
 
@@ -20,6 +39,7 @@
 
 ---
 作业提交
+- [测试结果展示](module08/README.md#第一部分)
 - [代码执行说明](./module08/README.md)
 - [本次作业代码地址](https://github.com/zzzzzsy/cncamp04/tree/main/module08)
 

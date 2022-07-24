@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: httpclient-conf
+  namespace: cncamp
+data:
+  config.json: |
+    {
+      "server": {
+          "port": "8080",
+          "host": "0.0.0.0",
+          "version": "1.0.0"
+      },
+      "loglevel": "debug"
+    }
