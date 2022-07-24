@@ -13,7 +13,7 @@
 ---
 作业提交
 - 本次作业基于Module08进行了改进
-- [代码执行说明](./doc/module08.md)
+- [代码执行说明](./module08/README.md)
 - [本次作业代码地址](https://github.com/zzzzzsy/cncamp04/tree/main/module08)
 
 
@@ -38,7 +38,7 @@
 
 ---
 作业提交
-- [代码执行说明](./doc/module08.md)
+- [代码执行说明](./module08/README.md)
 - [本次作业代码地址](https://github.com/zzzzzsy/cncamp04/tree/main/module08)
 
 ---
